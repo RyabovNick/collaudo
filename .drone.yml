@@ -21,9 +21,10 @@ steps:
       - name: docker
         path: /var/run/docker.sock
     commands:
-      - docker container stop collaudo || true && docker rm collaudo || true
       - docker build -t nick/collaudo .
-      - docker run -v /home/ssl:/home/node/collaudo/ssl -p 9002:3000 -d --name=collaudo nick/collaudo
+      - docker rmi -f $(docker images -f "dangling=true" -q) || true
+      - docker container stop collaudo || true && docker rm collaudo || true
+      - docker run -v /home/ssl:/home/node/collaudo/ssl -p 9002:9002 --net="host" -d --restart="always" --name=collaudo nick/collaudo
 
   - name: telegram
     image: appleboy/drone-telegram:latest
