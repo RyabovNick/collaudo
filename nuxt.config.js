@@ -21,7 +21,14 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -48,13 +55,47 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  /**
+   * auth module
+   * See https://auth.nuxtjs.org
+   */
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: 'https://vestra.uni-dubna.ru:8445/api/login',
+            method: 'post',
+            propertyName: 'user.token'
+          },
+          logout: true, //{ url: '/api/logout', method: 'post' }
+          user: {
+            url: 'https://vestra.uni-dubna.ru:8445/api/tokenValidation',
+            method: 'get',
+            propertyName: ''
+          }
+        }
+      }
+    }
+  },
+  /**
+   * global auth middleware
+   * turn off in component by
+   * export defaul {
+   *  auth: false
+   * }
+   */
+  router: {
+    middleware: ['auth']
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
