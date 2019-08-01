@@ -11,6 +11,6 @@ WORKDIR /home/node/collaudo
 
 ADD . /home/node/collaudo
 
-EXPOSE 9002
+EXPOSE 3000
 
 CMD [ "npm", "run", "start" ]
