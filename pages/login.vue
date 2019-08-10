@@ -47,12 +47,13 @@ export default {
   }),
   methods: {
     login() {
-      this.$auth.loginWith('local', {
-        data: {
-          username: this.email,
-          password: this.password
-        }
-      })
+      // this.$auth.loginWith('local', {
+      //   data: {
+      //     username: this.email,
+      //     password: this.password
+      //   }
+      // })
+      this.$auth.loginWith('github')
     }
   }
 }

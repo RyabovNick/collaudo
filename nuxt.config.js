@@ -1,3 +1,4 @@
+require('dotenv').config()
 import colors from 'vuetify/es5/util/colors'
 
 export default {
@@ -69,20 +70,24 @@ export default {
    */
   auth: {
     strategies: {
-      local: {
-        endpoints: {
-          login: {
-            url: 'https://vestra.uni-dubna.ru:8445/api/login',
-            method: 'post',
-            propertyName: 'user.token'
-          },
-          logout: true, //{ url: '/api/logout', method: 'post' }
-          user: {
-            url: 'https://vestra.uni-dubna.ru:8445/api/tokenValidation',
-            method: 'get',
-            propertyName: ''
-          }
-        }
+      // local: {
+      //   endpoints: {
+      //     login: {
+      //       url: 'http://localhost:3011/api/login',
+      //       method: 'post',
+      //       propertyName: 'user.token'
+      //     },
+      //     logout: true, //{ url: '/api/logout', method: 'post' }
+      //     user: {
+      //       url: 'http://localhost:3011/api/tokenValidation',
+      //       method: 'get',
+      //       propertyName: ''
+      //     }
+      //   }
+      // }
+      github: {
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET
       }
     }
   },
