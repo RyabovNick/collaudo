@@ -40,6 +40,36 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
           to: '/inspire'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Добавить тему',
+          to: '/admin/theme'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Добавить тип ответа',
+          to: '/admin/type'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Добавить вопрос',
+          to: '/admin/question'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Добавить ответ',
+          to: '/admin/answer'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Добавить вопросу ответ',
+          to: '/admin/question_answer'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Добавить вопросу тип ответа',
+          to: '/admin/question_type'
         }
       ],
       title: 'Collaudo'
